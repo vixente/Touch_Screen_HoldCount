@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3gqrtp4e8s08"]
+
+[ext_resource type="Script" path="res://base.gd" id="1_gsp05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l3q7"]
+size = Vector2(80, 80)
+
+[sub_resource type="SystemFont" id="SystemFont_cynyn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8lde"]
+font = SubResource("SystemFont_cynyn")
+
+[sub_resource type="SystemFont" id="SystemFont_bjj7x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4xgmc"]
+font = SubResource("SystemFont_bjj7x")
+
+[sub_resource type="SystemFont" id="SystemFont_05fqt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_55ntb"]
+font = SubResource("SystemFont_05fqt")
+
+[node name="Base" type="Node2D"]
+position = Vector2(150, 150)
+script = ExtResource("1_gsp05")
+
+[node name="Red Button Area2D (mouse)" type="Area2D" parent="."]
+
+[node name="Red CollisionPolygon2D" type="CollisionPolygon2D" parent="Red Button Area2D (mouse)"]
+polygon = PackedVector2Array(0, 0, 80, 0, 80, 80, 0, 80)
+
+[node name="Red Polygon2D" type="Polygon2D" parent="Red Button Area2D (mouse)"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 80, 0, 80, 80, 0, 80)
+
+[node name="Red TouchScreenButton" type="TouchScreenButton" parent="Red Button Area2D (mouse)"]
+position = Vector2(40, 40)
+shape = SubResource("RectangleShape2D_1l3q7")
+
+[node name="Blue Button Area2D (mouse)" type="Area2D" parent="."]
+position = Vector2(90, 0)
+
+[node name="Blue CollisionPolygon2D" type="CollisionPolygon2D" parent="Blue Button Area2D (mouse)"]
+polygon = PackedVector2Array(0, 0, 80, 0, 80, 80, 0, 80)
+
+[node name="Blue Polygon2D" type="Polygon2D" parent="Blue Button Area2D (mouse)"]
+color = Color(0, 0.25098, 1, 1)
+polygon = PackedVector2Array(0, 0, 80, 0, 80, 80, 0, 80)
+
+[node name="Blue TouchScreenButton" type="TouchScreenButton" parent="Blue Button Area2D (mouse)"]
+position = Vector2(40, 40)
+shape = SubResource("RectangleShape2D_1l3q7")
+
+[node name="Yellow Button Area2D2 (mouse)" type="Area2D" parent="."]
+position = Vector2(180, 0)
+
+[node name="Yellow CollisionPolygon2D" type="CollisionPolygon2D" parent="Yellow Button Area2D2 (mouse)"]
+polygon = PackedVector2Array(0, 0, 80, 0, 80, 80, 0, 80)
+
+[node name="Yellow Polygon2D" type="Polygon2D" parent="Yellow Button Area2D2 (mouse)"]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(0, 0, 80, 0, 80, 80, 0, 80)
+
+[node name="Yellow TouchScreenButton" type="TouchScreenButton" parent="Yellow Button Area2D2 (mouse)"]
+position = Vector2(40, 40)
+shape = SubResource("RectangleShape2D_1l3q7")
+
+[node name="Label Base" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 100.0
+offset_right = 5.0
+offset_bottom = 105.0
+
+[node name="State" type="Control" parent="Label Base"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Red Label" type="Label" parent="Label Base/State"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 26.0
+text = "RELEASED"
+label_settings = SubResource("LabelSettings_a8lde")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Blue Label" type="Label" parent="Label Base/State"]
+offset_left = 90.0
+offset_right = 170.0
+offset_bottom = 26.0
+text = "RELEASED"
+label_settings = SubResource("LabelSettings_4xgmc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yellow Label" type="Label" parent="Label Base/State"]
+offset_left = 180.0
+offset_right = 260.0
+offset_bottom = 26.0
+text = "RELEASED"
+label_settings = SubResource("LabelSettings_55ntb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timers" type="Control" parent="Label Base"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Red Timer Label" type="Label" parent="Label Base/Timers"]
+offset_top = 36.0
+offset_right = 80.0
+offset_bottom = 62.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Blue Timer Label" type="Label" parent="Label Base/Timers"]
+offset_left = 90.0
+offset_top = 36.0
+offset_right = 170.0
+offset_bottom = 62.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yellow Timer Label" type="Label" parent="Label Base/Timers"]
+offset_left = 180.0
+offset_top = 36.0
+offset_right = 260.0
+offset_bottom = 62.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="Red Button Area2D (mouse)" to="." method="_on_red_button_area_2d_input_event"]
+[connection signal="pressed" from="Red Button Area2D (mouse)/Red TouchScreenButton" to="." method="_on_red_touch_screen_button_pressed"]
+[connection signal="released" from="Red Button Area2D (mouse)/Red TouchScreenButton" to="." method="_on_red_touch_screen_button_released"]
+[connection signal="input_event" from="Blue Button Area2D (mouse)" to="." method="_on_blue_button_area_2d_input_event"]
+[connection signal="pressed" from="Blue Button Area2D (mouse)/Blue TouchScreenButton" to="." method="_on_blue_touch_screen_button_pressed"]
+[connection signal="released" from="Blue Button Area2D (mouse)/Blue TouchScreenButton" to="." method="_on_blue_touch_screen_button_released"]
+[connection signal="input_event" from="Yellow Button Area2D2 (mouse)" to="." method="_on_yellow_button_area_2d_2_input_event"]
+[connection signal="pressed" from="Yellow Button Area2D2 (mouse)/Yellow TouchScreenButton" to="." method="_on_yellow_touch_screen_button_pressed"]
+[connection signal="released" from="Yellow Button Area2D2 (mouse)/Yellow TouchScreenButton" to="." method="_on_yellow_touch_screen_button_released"]
