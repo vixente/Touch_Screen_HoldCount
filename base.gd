@@ -57,27 +57,21 @@ func _process(delta):
 	
 	# CHECK IF ANY TIMELAPSE REACHED 2 SECS
 
-	
 	if red_timelapse >= 2.0:
 		red_label_settings.font_color = Color.GREEN
-		#$"Label Base/State/Red Label".label_settings.font_color = 0x00bb00
 	else:
 		red_label_settings.font_color = Color.WHITE
-		#$"Label Base/State/Red Label".label_settings.font_color = 0xffffff
 	
 	if blue_timelapse >= 2.0:
-		#$"Label Base/State/Blue Label".label_settings.font_color = 0x00bb00
 		blue_label_settings.font_color = Color.GREEN
 	else:
 		blue_label_settings.font_color = Color.WHITE
-		#$"Label Base/State/Blue Label".label_settings.font_color = 0xffffff
 	
 	if yellow_timelapse >= 2.0:
 		yellow_label_settings.font_color = Color.GREEN
-		#$"Label Base/State/Yellow Label".label_settings.font_color = 0x00bb00
 	else:
 		yellow_label_settings.font_color = Color.WHITE
-		#$"Label Base/State/Yellow Label".label_settings.font_color = 0xffffff
+
 		
 		
 		
